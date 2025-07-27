@@ -28,7 +28,7 @@ DISTRIBUTABLES += $(wildcard presets)
 
 $(VERILATED_PATH)/Vcore.mk: rtl/core.sv
 	mkdir -p build; \
-	verilator --cc $< -Mdir $(VERILATED_PATH) -CFLAGS -fPIC
+    verilator --cc $< -Mdir $(VERILATED_PATH) -CFLAGS -fPIC  -CFLAGS -std=c++17
 
 $(VERILATED_PATH)/$(VERILATED_OBJ): $(VERILATED_PATH)/Vcore.mk
 	make -C $(VERILATED_PATH) -f $(VERILATED_MK)
